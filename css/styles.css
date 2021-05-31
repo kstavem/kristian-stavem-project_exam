@@ -1,0 +1,114 @@
+/***** GLOBAL *****/
+
+/***** NAVIGATION *****/
+
+.nav {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.nav--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    overflow: visible;
+}
+
+#nav-toggler {
+    display: none;
+}
+
+#nav-toggler:checked ~ .nav--toggle {
+    display: block;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 1rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.logo i {
+    font-size: 3rem;
+}
+
+
+/***** BODY *****/
+.splash {
+    position: relative;
+    background: url(../assets/images/nightlaunch_lander.jpg) no-repeat center;
+    height: 884px;
+}
+
+
+/***** MEDIA QUERIES *****/
+
+@media screen and (min-width: 1025px) {
+
+    .nav {
+        justify-content: center;
+    }
+    .nav--toggle {
+        display: flex;
+        position: static;
+        list-style: none;
+        align-items: center;
+    }
+
+    .nav__label, #nav--close {
+        display: none;
+    }
+
+    .nav__link {
+        display: flex;
+        height: 100px;
+        align-items: center;
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .nav--toggle {
+        display: none;
+        list-style: none;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        min-width: 300px;
+    }
+
+    .nav__label {
+        position: absolute;
+        right: 0;
+        font-size: 3rem;
+        padding: 1rem;
+    }
+
+    #nav--close {
+        position: absolute;
+        right: 3px;
+        bottom: 3px;
+        padding: .5rem .8rem;
+        font-size: 1.3rem;
+        border: 2px solid #fff;
+        border-radius: 20%;
+    }
+
+    .nav__link {
+        display: inline-block;
+        padding: 0 3rem;
+
+    }
+}
