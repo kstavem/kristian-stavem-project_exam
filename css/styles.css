@@ -5,6 +5,10 @@ body {
     min-height: 2000px;    
 }
 
+li {
+    list-style: none;
+}
+
 /***** NAVIGATION *****/
 
 .nav {
@@ -81,12 +85,11 @@ body {
     width: 960px;
     margin: 100px auto 0 auto;
     text-align: center;
-    display: flex;
-    flex-flow: column nowrap;
 }
 
-.rocket li {
-    min-width: 33%;
+.launches {
+    display: flex;
+    flex-flow: column nowrap;
 }
 
 /***** MEDIA QUERIES *****/
@@ -101,7 +104,6 @@ body {
         justify-content: space-around;
         position: static;
         width: 100%;
-        list-style: none;
     }
 
     .nav--button {
@@ -123,7 +125,6 @@ body {
 @media screen and (max-width: 1024px) {
     .nav--toggle {
         display: none;
-        list-style: none;
         position: fixed;
         padding: 0;
         background-color: rgba(0, 0, 0, 0.5);
