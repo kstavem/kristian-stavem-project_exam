@@ -13,3 +13,6 @@ https://api.nasa.gov/planetary/apod?api_key=Ap6vMvZ8EAmRKXeeMY9RXNRC0ClDV33k5nJX
 
 API:
 https://apod.nasa.gov/apod/astropix.html    Astronomy Pic Of the Day (APOD)
+
+
+KERBAL helper

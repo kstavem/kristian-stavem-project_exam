@@ -18,7 +18,7 @@
 
 <body>
 
-    <header class="nav--fixed">
+    <header class="nav--fixed nav--transparent">
         <nav class="nav">
             <a href="index.html" class="logo">SpaceX<i class="fas fa-rocket"></i></a>
             <label for="nav--burger" class="nav--button"><i class="fas fa-bars"></i></label>
@@ -32,9 +32,22 @@
         </nav>
     </header>
     <main>
-        <div class="rocket">
+        <div class="splash__rocket">
+
+        </div>
+
+        <div class="radio--container">
+            <form class="radio--group">
+                <input type="radio" id="utctime" name="timezone">
+                <label class="radiobutton" for="utctime">UTC</label>
+                <input type="radio" id="localtime" name="timezone">
+                <label class="radiobutton" for="localtime">Local</label>
+            </form>
+        </div>
+
+        <div class="rocket mt100">
             <ul class="launches">
-                <p>SPINNER</p>
+                <div class="loader"></div>
             </ul>
         </div>
     </main>
