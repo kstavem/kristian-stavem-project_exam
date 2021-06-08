@@ -32,15 +32,13 @@ function navScroll() {
 
 document.addEventListener("scroll", navScroll);
 
-
-const localParagraphs = document.querySelector(".launch__local");
-const localRadio = document.querySelector("#localtime")
-const utcParagraphs = document.querySelector(".launch__utc");
-const utcRadio = document.querySelector("#utctime");
-const radioButtons = document.querySelector(".radio--group")
-
 // Depending on which radio button is checked, displays a div with date/launch window in the selected timezone. Local is US east.
 function radioLabel() {
+    const localParagraphs = document.querySelector(".launch__local");
+    const localRadio = document.querySelector("#localtime")
+    const utcParagraphs = document.querySelector(".launch__utc");
+    const utcRadio = document.querySelector("#utctime");
+
     if (utcRadio.checked) {
         localParagraphs.classList.add("nodisplay");
         utcParagraphs.classList.remove("nodisplay");
@@ -51,7 +49,9 @@ function radioLabel() {
     }
 };
 
-document.body.addEventListener('doc-ready-ish', function () {
-    const radioButtons = document.querySelector(".radio--group")
+
+
+document.body.addEventListener("doc-ready-ish", function () {
+    const radioButtons = document.querySelector(".radio--group");
     radioButtons.addEventListener("click", radioLabel);
 })

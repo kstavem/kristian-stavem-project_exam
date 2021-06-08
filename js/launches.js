@@ -116,10 +116,10 @@ async function getLaunch() {
     }
 };
 
-getLaunch();
-
-const event = new Event("doc-ready-ish");
-document.body.dispatchEvent(event);
+getLaunch().then(function () {
+    const myEvent = new Event("doc-ready-ish");
+    document.body.dispatchEvent(myEvent);
+});
 
 
 
