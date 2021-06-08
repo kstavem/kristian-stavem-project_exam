@@ -1,26 +1,20 @@
-const launchTime = document.querySelector(".launch--time");
+const localParagraphs = document.querySelector(".launch__local");
+const localRadio = document.querySelector("#localtime")
+const utcParagraphs = document.querySelector(".launch__utc");
+const utcRadio = document.querySelector("#utctime");
+const radioButtons = document.querySelector(".radio--group")
 
-function launchDate(ld) {
-    const launchDate = new Date(ld);
-    const yyyy = launchDate.getFullYear();
-    let mm = launchDate.getMonth() + 1;
-    let dd = launchDate.getDate();
+function radioLabel() {
+    if (utcRadio.checked) {
+        localParagraphs.classList.add("nodisplay");
+        utcParagraphs.classList.remove("nodisplay");
 
-    if (dd < 10) {
-        dd = "0" + dd;
+    } else {
+        localParagraphs.classList.remove("nodisplay");
+        utcParagraphs.classList.add("nodisplay");
     }
-
-    if (mm < 10) {
-        mm = "0" + mm;
-    }
-
-    const myDate = yyyy + "-" + mm + "-" + dd;
-    console.log(myDate);
-
-    const time = new Date(ld).toLocaleTimeString('en-US',
-        { timeStyle: 'long', hour12: true });
-    console.log(time);
 };
 
-launchDate("2021-09-14T20:00:00-04:00");
+radioButtons.addEventListener("click", radioLabel);
+
 

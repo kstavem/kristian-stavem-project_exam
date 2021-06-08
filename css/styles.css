@@ -5,12 +5,24 @@ body {
     min-height: 2000px;    
 }
 
+h1, h2, h3 {
+    font-family: 'Sigmar One', cursive;
+}
+
 li {
     list-style: none;
 }
 
-.mt100 {
-    margin-top: 100px;
+.flex {
+    display: flex;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-100:nth-of-type(2n-1) {
+    background-color: blanchedalmond;
 }
 
 .kerbal {
@@ -133,33 +145,66 @@ li {
     padding: 1rem;
 }
 
-/***** PAGE: ROCKETS *****/
-
-.rocket {
-    max-width: 960px;
-    margin: 100px auto 0 auto;
-}
+/***** PAGE: LAUNCHES *****/
 
 .launches {
     display: flex;
     flex-flow: column nowrap;
-    padding: 0;
+    margin: 0 auto;
 }
 
-.launches p {
+.launch--container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.launch--container p {
     max-width: 320px;
 }
 
-.launchdate {
+.launch--container h2 {
+    font-size: 2rem;
+}
+
+.rocket__link {
+    display: inline-block;    
+}
+
+.radio--group input[type="radio"] {
     display: none;
 }
 
-.date--show {
-    display: block;
+.radio--group label {
+    display: inline-block;
+    min-width: 40px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15%;
+    background-color: black;
+    color: white;
+    box-shadow: 3px 3px 5px darkgrey;
+    margin-right: 2rem;
 }
-/***** MEDIA QUERIES *****/
 
-@media screen and (min-width: 1025px) {
+.radio--group label:hover {
+    cursor: pointer;
+    background-color: #5e2947;
+    transition: background .2s ease;
+}
+
+.label__highlight {
+    background-color: #1b1b1b;
+    box-shadow: 1px 1px 2px darkgrey;
+}
+
+.nodisplay {
+    display: none;
+}
+
+/***** MEDIA QUERIES *****/
+@media screen and (min-width: 1024px) {
+    /***** NAVIGATION *****/
 
     .nav {
         justify-content: flex-start;
@@ -181,7 +226,9 @@ li {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
+    /***** NAVIGATION *****/
+
     .nav--toggle {
         display: none;
         position: fixed;
@@ -228,7 +275,28 @@ li {
         background: url(../assets/images/daylaunch_spacex_sm.jpg) no-repeat;
         height: 768px;
         background-position: 5% 50%;
+    }  
+}
 
+@media screen and (min-width: 768px) {
+    /***** PAGE: LAUNCHES *****/
+
+    .rocket--info {
+        padding-left: 7rem;
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    /***** PAGE: LAUNCHES *****/
+
+    .flex__col {
+        flex-flow: column;   
+    }
+
+    .narrow {
+        max-width: 320px;
+        margin: 0 auto;
     }
 }
 
@@ -241,3 +309,4 @@ li {
         font-size: 1.8rem;
     }
 }
+   
