@@ -37,13 +37,16 @@ function launchTime(ld, timezone) {
         myTime = launchDate.toLocaleTimeString(timezone,
             { timeStyle: "long", timeZone: "UTC", hour12: false });
     }
-    console.log(myTime);
     return myTime;
 };
 
 // Function that builds the .launches HTML.
 // It takes two arguments, objects received from the API-calls.
 function spaceHTML(launch, rocket) {
+    if (!launch.details) {
+        launch.details = "No details about this launch yet. Check back closer to launch for more details!";
+    }
+
     launchList.innerHTML +=
         `
         <div class="width-100">
@@ -52,22 +55,21 @@ function spaceHTML(launch, rocket) {
                 <div class="flex flex__col">
                     <p>${launch.details}</p>
                     <div class="rocket--info">
-                        <p><strong>Rocket: </strong><a class="rocket__link" href="#">${rocket.name}</a></p>
+                        <p><strong>Rocket: </strong><a href="rocket-details.html?id=${rocket.id}">${rocket.name}</a></p>
                         <p><strong>Launch number: </strong>${launch.flight_number}
                         <div class="timezone--container"> 
-                            <div class="nodisplay launch__local">                                          
+                            <div class="launch__local">                                          
                                 <p><strong>Date: </strong>${launchDate(launch.date_local)}</p>
-                                <p><strong>Launch window: </strong>${launchTime(launch.date_local, "en-US")}</p>
+                                <p><strong>Launch window start: </strong>${launchTime(launch.date_local, "en-US")}</p>
                             </div>
-                            <div class="launch__utc">
+                            <div class="nodisplay launch__utc">
                                 <p><strong>Date: </strong>${launchDate(launch.date_utc)}</p>
-                                <p><strong>Launch window: </strong>${launchTime(launch.date_utc, "en-GB")}</p>
+                                <p><strong>Launch window start: </strong>${launchTime(launch.date_utc, "en-GB")}</p>
                             </div>
-                            <form class="radio--group">
-                                <input type="radio" id="utctime" name="timezone">
-                                <label for="utctime">UTC</label>
-                                <input type="radio" id="localtime" name="timezone" checked>
-                                <label for="localtime">Local</label>
+                            <form class="radio--group"> 
+                                <p><strong>Timezone: </strong></p>                                                       
+                                <label class="localtime label__highlight">Local<input type="radio" name="timezone" checked></label>
+                                <label class="utctime">UTC<input type="radio" name="timezone"></label>    
                             </form>
                         </div>                   
                     </div>
@@ -99,16 +101,14 @@ async function getLaunch() {
         launchList.innerHTML = ``;
 
         for (i = 0; i < launchResult.length; i++) {
-            if (!launchResult[i].details) {
-                continue;
-            } else {
-                const rocketID = launchResult[i].rocket;
-                const myRocket = await getRocket(rocketID);
-                getRocket(rocketID);
-                console.log(launchResult[i]);
-                console.log(myRocket);
-                spaceHTML(launchResult[i], myRocket);
-            }
+
+            const rocketID = launchResult[i].rocket;
+            const myRocket = await getRocket(rocketID);
+            getRocket(rocketID);
+            console.log(launchResult[i]);
+            console.log(myRocket);
+            spaceHTML(launchResult[i], myRocket);
+
         }
     }
     catch (err) {
@@ -116,10 +116,13 @@ async function getLaunch() {
     }
 };
 
-getLaunch().then(function () {
+// Event created, and listened for in script.js to delay running code dependant on the dynamic HTML/CSS created by getLaunch();
+function documentReady() {
     const myEvent = new Event("doc-ready-ish");
     document.body.dispatchEvent(myEvent);
-});
+};
+
+getLaunch().then(documentReady);
 
 
 

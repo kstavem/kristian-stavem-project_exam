@@ -1,20 +1,5 @@
-const localParagraphs = document.querySelector(".launch__local");
-const localRadio = document.querySelector("#localtime")
-const utcParagraphs = document.querySelector(".launch__utc");
-const utcRadio = document.querySelector("#utctime");
-const radioButtons = document.querySelector(".radio--group")
-
-function radioLabel() {
-    if (utcRadio.checked) {
-        localParagraphs.classList.add("nodisplay");
-        utcParagraphs.classList.remove("nodisplay");
-
-    } else {
-        localParagraphs.classList.remove("nodisplay");
-        utcParagraphs.classList.add("nodisplay");
-    }
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-radioButtons.addEventListener("click", radioLabel);
-
-
+console.log(randomInteger(0, 6));
