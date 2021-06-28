@@ -2,6 +2,7 @@ const burgerMenu = document.querySelector("#nav--burger");
 const widthCheck = window.matchMedia("(min-width: 1025px)");
 const navButton = document.querySelector(".nav--button");
 const hiddenMenu = document.querySelector(".nav--toggle");
+const header = document.querySelector("header");
 
 // Hides the menu if the window is manually re-sized, so both menus wont be active at the same time in certain situations.
 widthCheck.addEventListener("change", (e) => {

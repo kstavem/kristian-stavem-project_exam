@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The SpaceX rocket fleet, at your service">
+    <script src="https://kit.fontawesome.com/6b445507dd.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Sigmar+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Rocket options</title>
+</head>
+
+<body>
+
+    <header class="nav--fixed nav--solid__black">
+        <nav class="nav">
+            <a href="index.html" class="logo">SpaceX<i class="fas fa-rocket"></i></a>
+            <label for="nav--burger" class="nav--button"><i class="fas fa-bars"></i></label>
+            <input type="checkbox" id="nav--burger">
+            <ul class="nav--toggle">
+                <li><a class="link nav__link" href="index.html">Home</a></li>
+                <li><a class="link nav__link" href="launches.html">Launches</a></li>
+                <li><a class="link nav__link link--active" href="rockets.html">Rocket</a></li>
+                <li><a class="link nav__link" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <div class="launch--container flex flex__col narrow">
+
+            <div class="flex flex__center">
+                <h1 class="mt-85">SpaceX rocket fleet</h1>
+                <div class="flex flex--col__md">
+                    <p class="paragraph">Since 2008 SpaceX have launched almost 150 missions to space. After a few years
+                        of trial and error, SpaceX finally launched the Falcon 1 to low earth orbit (as the first
+                        privately owned company in history to do so). This success earned the company a billion dollar
+                        contract with NASA, and facilitated a boost in development on the Falcon 9, SpaceX's trusty
+                        workhorse.The next years development focused on the landing and rescue capabilities of
+                        the Falcon 9 boosters, a feat that has made the commercialization of space more viable. </p>
+                    <p class="paragraph"> In 2018
+                        Falcon Heavy had its first test flight, becoming the most powerful operational rocket in the
+                        world. Currently testing of the <em>SpaceX's Starship spacecraft and Super Heavy rocket</em>
+                        (also called Starship) is underway. When operational it will not only de-throne Falcon Heavy as
+                        the strongest <em>operational</em> lifter, but become the most powerful lifter <em>ever
+                            deployed</em>. Elon Musk has stated that SpaceX's goal is to put man on Mars by 2026.</p>
+                </div>
+            </div>
+            <div class="rocket flex flex__center">
+                <div class="padded--room">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script src="js/script.js"></script>
+    <script src="js/rockets.js"></script>
+</body>
+
+</html>

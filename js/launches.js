@@ -40,6 +40,7 @@ function launchTime(ld, timezone) {
     return myTime;
 };
 
+
 // Function that builds the .launches HTML.
 // It takes two arguments, objects received from the API-calls.
 function spaceHTML(launch, rocket) {
@@ -51,10 +52,10 @@ function spaceHTML(launch, rocket) {
         `
         <div class="width-100">
             <div class="launch--container narrow">
-                <h2 class="launch--name">Mission: ${launch.name}</h2>                                    
+                <h2 class="launch--name">Mission: ${launch.name}</h2>                                   
                 <div class="flex flex__col">
                     <p>${launch.details}</p>
-                    <div class="rocket--info">
+                    <div class="launch--info">
                         <p><strong>Rocket: </strong><a href="rocket-details.html?id=${rocket.id}">${rocket.name}</a></p>
                         <p><strong>Launch number: </strong>${launch.flight_number}
                         <div class="timezone--container"> 

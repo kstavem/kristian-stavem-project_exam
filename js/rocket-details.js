@@ -5,31 +5,53 @@ const rocketID = params.get("id");
 const API_URL = "https://api.spacexdata.com/v4/rockets/" + rocketID;
 const rocketArray = [];
 
-// Basic math function to get a number between x and y. Used to get a number between 0 and the image array length further down.
-function randomImage(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
 function rocketHTML(rocket) {
+    const name = rocket.name;
+    let image = ""; // image array
+    if (rocketID == "5e9d0d95eda69955f709d1eb") {
+        image = ["assets/images/falcon1.jpg", "assets/images/falcon1_2.jpg"];
+    } else {
+        image = rocket.flickr_images;
+    };
+    const desc = rocket.description;
+    const flight = rocket.first_flight;
+    const success = rocket.success_rate_pct;
+    const meters = rocket.height.meters;
+    const feet = rocket.height.feet;
+    const tons = Math.floor(rocket.mass.kg);
+    const engines = rocket.engines.number;
+    const engineType = rocket.engines.type;
+    const thrust = rocket.first_stage.thrust_sea_level.kN;
+    const wikiLink = rocket.wikipedia;
+
     rocketContainer.innerHTML +=
         `
             <div class="launch--container narrow">
-                <h2 class="launch--name">Rocket: ${rocket.name}</h2>
-                    <div class="flex flex__col">
-                        <img src="${rocket.flickr_images[randomImage(0, rocket.flickr_images.length)]}" class="rocket--image">
-                        <div class="rocket--info">
-                            <p>${rocket.description}</p>
-                            <p>It had its first flight on <strong>${rocket.first_flight}</strong>, and has a ${rocket.success_rate_pct}% success rate.</p>
-                            <p><strong>Height: </strong>${rocket.height.meters} meters (${rocket.height.feet} feet).</p>
-                            <p><strong>Diameter: </strong>${rocket.diameter.meters} meters (${rocket.diameter.feet} feet.)</p>
-                            <p><strong>Weight: </strong>~${Math.floor(rocket.mass.kg / 1000)} tons.</p>
-                            <p><strong>Engines: </strong>${rocket.engines.number} ${rocket.engines.type} engines producing
-                               ${rocket.first_stage.thrust_sea_level.kN} kN thrust at sea level.</p>
-                            <p>Read more on the ${rocket.name} <a href="${rocket.wikipedia}">wiki</a></p>
-                        </div>
+                <h2 class="rocket--name">Rocket: ${name}</h2>
+                <div class="flex flex__col between">   
+                <img src="${image[0]}" alt="SpaceX ${name} rocket" class="rocket--image__small">                     
+                    <div>
+                        <p>${desc}</p>
+                        <p>It had its first flight on <strong>${flight}</strong>, and has a ${success}% success rate.</p>
+                        <p><strong>Height: </strong>${meters} meters (${feet} feet).</p>
+                        <p><strong>Diameter: </strong>${meters} meters (${feet} feet.)</p>
+                        <p><strong>Weight: </strong>~${tons} tons.</p>
+                        <p><strong>Engines: </strong>${engines} ${engineType} engines producing
+                        ${thrust} kN thrust at sea level.</p>
+                        <p>Read more on the ${name} <a href="${wikiLink}">wiki</a></p>
                     </div>
+                
+                </div>                
             </div>
-        `
+        `;
+
+    const imageBox = document.querySelector("#rocket--image__array");
+    for (var i = 1; i < image.length; i++) {
+        imageBox.innerHTML += `<img src="${image[i]}" class="rocket--image" alt="SpaceX ${name} rocket">`
+    };
+    imageBox.innerHTML += ` <p class="centered">
+                                <a href="rockets.html">Rockets</a> &gt; <a href="${document.location.href}">${name}</a>
+                            </p>`
 };
 
 async function getRocket() {

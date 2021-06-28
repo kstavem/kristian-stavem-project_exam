@@ -8,16 +8,55 @@ h1, h2, h3 {
     font-family: 'Sigmar One', cursive;
 }
 
+h1 {
+    padding: 1rem 0;
+}
+
 li {
     list-style: none;
 }
 
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
 .flex {
     display: flex;
+    flex-flow: row wrap;
+}
+
+.flex__center {
+    justify-content: center
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.column {
+    flex-flow: column;
 }
 
 .width-100 {
     width: 100%;
+}
+
+.paragraph {
+    max-width: 350px;
+    margin: 1rem;
+}
+
+.mt-85 {
+    margin-top: 85px;
+}
+
+.centered {
+    margin: 0 auto;
+    text-align: center;
 }
 
 .width-100:nth-of-type(2n-1) {
@@ -97,6 +136,10 @@ li {
     transition: background 750ms;
 }
 
+.nav--solid__black {
+    background-color: #000;
+}
+
 .nav__link {
     display: flex;
     text-transform: uppercase;
@@ -161,7 +204,7 @@ li {
 .launch--container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .launch--container p {
@@ -172,7 +215,7 @@ li {
     font-size: 2rem;
 }
 
-.rocket--info a:hover {
+.launch--info a:hover {
     font-weight: bold;
 }
 
@@ -211,12 +254,48 @@ li {
 /***** PAGE: ROCKET-DETAILS *****/
 
 .rocket {
-    margin: 85px auto 0 auto;
+    width: 100%;
 }
 
 .rocket--image {
-    padding-top: 1rem;
-    max-width: 450px;
+    max-width: 960px;
+    margin-top: 1rem;
+}
+
+.rocket--image__small {
+    max-width: 416px;
+}
+
+.rocket--name {
+    text-align: center;
+}
+
+.rocket--display {
+    display: flex;
+    margin: .3rem;   
+}
+
+.rocket--group {
+    height: 250px;
+    width: 400px;
+    border-radius: 5%;
+}
+
+.rocket--blurb {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: .3rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 30%;
+    position: absolute;
+    bottom: 17%;
+    left: 5%;
+    text-align: center;   
+}
+
+.shadow {
+    color: #fff;
+    text-shadow: 2px 2px 1px #000;
 }
 
 /***** MEDIA QUERIES *****/
@@ -240,7 +319,7 @@ li {
     .nav__link {
         height: 85px;
         align-items: center;
-    }
+    }    
 }
 
 @media screen and (max-width: 1023px) {
@@ -292,18 +371,25 @@ li {
         background: url(../assets/images/daylaunch_spacex_sm.jpg) no-repeat;
         height: 768px;
         background-position: 5% 50%;
-    }  
-
+    }   
+    
     .rocket--image {
-        max-width: 300px;
+        max-width: 736px;
+    }
+
+    .rocket--image__small {
+        max-width: 400px;
+    }
+
+    .rocket--group {
+        max-width: 350px;
+        height: 227px;
     }
 }
 
 @media screen and (min-width: 768px) {
-    /***** PAGE: LAUNCHES *****/
-
-    .rocket--info {
-        padding-left: 7rem;
+    .launch--info {
+        margin-left: 2rem;
     }
 }
 
@@ -317,6 +403,20 @@ li {
     .narrow {
         max-width: 320px;
         margin: 0 auto;
+    } 
+
+    .rocket--image {
+        max-width: 320px;
+    }
+    
+    .rocket--image__small {
+        max-width: 320px;
+    }
+
+    .flex--col__md {
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -327,6 +427,18 @@ li {
 
     .logo, .logo i {
         font-size: 1.8rem;
+    }
+
+    .launch--container {
+        padding: .3rem;
+    }
+
+    .rocket--image {
+        max-width: 310px;
+    }
+
+    #rocket--image__array {
+        margin: 0 auto;
     }
 }
    
