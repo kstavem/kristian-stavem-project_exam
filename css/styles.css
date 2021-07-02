@@ -69,6 +69,13 @@ li {
 
 .kerbal {
     width: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: auto; 
+    margin-right: auto;
+
 }
 
 .splash {
@@ -277,7 +284,9 @@ li {
 }
 
 .radio--group .label__highlight {
-    box-shadow: 4px 4px 6px darkgrey;
+    box-shadow: 0 0 6px #c72828;
+    text-decoration: underline;
+
 }
 
 .nodisplay {
@@ -414,7 +423,7 @@ li {
         background: url(../assets/images/daylaunch_spacex_sm.jpg) no-repeat;
         height: 768px;
         background-position: 5% 50%;
-    }   
+    }
     
     .rocket--image {
         max-width: 736px;
