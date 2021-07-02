@@ -23,9 +23,9 @@ function rocketHTML(rocket) {
         `
             <div class="launch--container narrow">
                 <h2 class="rocket--name">Rocket: ${name}</h2>
-                <div class="flex flex__col between">   
+                <div class="flex flex__col flex__center">   
                     <img src="${image[0]}" alt="SpaceX ${name} rocket" class="rocket--image__small" referrerpolicy="no-referrer">                    
-                    <div>
+                    <div class="rocket--info">
                         <p>${desc}</p>
                         <p>It had its first flight on <strong>${flight}</strong>, and has a ${success}% success rate.</p>
                         <p><strong>Height: </strong>${meters} meters (${feet} feet).</p>

@@ -43,6 +43,7 @@ li {
 
 .width-100 {
     width: 100%;
+    padding-bottom: 1rem;
 }
 
 .paragraph {
@@ -63,7 +64,7 @@ li {
 }
 
 .width-100:nth-of-type(2n-1) {
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(228, 228, 228);
 }
 
 .kerbal {
@@ -240,11 +241,8 @@ li {
 }
 
 .launch--container p {
-    max-width: 320px;
-}
-
-.launch--container h2 {
-    font-size: 2rem;
+    max-width: 310px;
+   
 }
 
 .launch--info a:hover {
@@ -274,13 +272,11 @@ li {
 
 .radio--group label:hover {
     cursor: pointer;
-    background-color: #ff0000;
     text-decoration: underline;
     transition: background .2s ease;
 }
 
 .radio--group .label__highlight {
-    background-color: #c72828;
     box-shadow: 4px 4px 6px darkgrey;
 }
 
@@ -300,6 +296,10 @@ li {
     border-radius: 3%;
 }
 
+.rocket--info {
+    margin-left: .5rem;
+}
+
 .rocket--image__small {
     max-width: 416px;
     border-radius: 6%;
@@ -307,11 +307,12 @@ li {
 
 .rocket--name {
     text-align: center;
+    font-size: 1.8rem;
 }
 
 .rocket--display {
     display: flex;
-    margin: .3rem;   
+    margin: .2rem;   
 }
 
 .rocket--group {
@@ -358,7 +359,11 @@ li {
     .nav__link {
         height: 85px;
         align-items: center;
-    }    
+    }
+
+    .rocket--info {
+        margin-left: 3rem;
+    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -413,6 +418,8 @@ li {
     
     .rocket--image {
         max-width: 736px;
+        margin: 1rem auto;
+        display: block;
     }
 
     .rocket--image__small {
@@ -433,6 +440,10 @@ li {
 
 @media screen and (max-width: 767px) {
     /***** PAGE: LAUNCHES *****/
+
+    .launch--details {
+        margin: 0 1rem;
+    }
 
     .flex__col {
         flex-flow: column;  

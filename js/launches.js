@@ -66,7 +66,7 @@ function spaceHTML(launch, rocket) {
                 <h2 class="launch--name">Mission: ${launch.name}</h2>                                 
                 <div class="flex flex__center flex__col">
                     <div>
-                        <p>${launch.details}</p>
+                        <p class="launch--details">${launch.details}</p>
                         ${patchImg}
                     </div>
                     <div class="launch--info">
