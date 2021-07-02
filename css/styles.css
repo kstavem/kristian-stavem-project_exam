@@ -55,8 +55,11 @@ li {
 }
 
 .centered {
-    margin: 0 auto;
     text-align: center;
+}
+
+.page {
+    margin: 2rem auto;
 }
 
 .width-100:nth-of-type(2n-1) {
@@ -71,12 +74,6 @@ li {
     position: relative;
     background: url(../assets/images/nightlaunch_lander_lg.jpg) no-repeat center;
     height: 884px;
-}
-
-.splash__rocket {
-    position: relative;
-    background: url(../assets/images/daylaunch_spacex_lg.jpg) no-repeat center;
-    height: 768px;
 }
 
 /***** STOLEN INFLUENCES *****/
@@ -195,6 +192,36 @@ li {
 
 /***** PAGE: LAUNCHES *****/
 
+
+.splash__rocket {
+    position: relative;
+    background: url(../assets/images/daylaunch_spacex_lg.jpg) no-repeat center;
+    height: 768px;
+}
+
+#launch--blurb {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40%;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+    max-width: 400px;    
+}
+
+#launch--header {
+    font-size: 2rem;
+    color: rgb(255, 255, 255); 
+    -webkit-text-stroke: 1px #000;
+    text-shadow:
+       1px 1px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;   
+}
+
 .launches {
     display: flex;
     flex-flow: column nowrap;
@@ -207,6 +234,11 @@ li {
     padding: 1rem;
 }
 
+.launch--name {
+    text-align: center;
+    text-decoration: underline;
+}
+
 .launch--container p {
     max-width: 320px;
 }
@@ -217,6 +249,11 @@ li {
 
 .launch--info a:hover {
     font-weight: bold;
+}
+
+.launch--time {
+    display: inline-block   ;
+    min-width: 100px;
 }
 
 .radio--group input[type="radio"] {
@@ -260,10 +297,12 @@ li {
 .rocket--image {
     max-width: 960px;
     margin-top: 1rem;
+    border-radius: 3%;
 }
 
 .rocket--image__small {
     max-width: 416px;
+    border-radius: 6%;
 }
 
 .rocket--name {
@@ -323,7 +362,6 @@ li {
 }
 
 @media screen and (max-width: 1023px) {
-    /***** NAVIGATION *****/
 
     .nav--toggle {
         display: none;
@@ -397,7 +435,8 @@ li {
     /***** PAGE: LAUNCHES *****/
 
     .flex__col {
-        flex-flow: column;   
+        flex-flow: column;  
+        align-items: center; 
     }
 
     .narrow {

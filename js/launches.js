@@ -44,28 +44,42 @@ function launchTime(ld, timezone) {
 // Function that builds the .launches HTML.
 // It takes two arguments, objects received from the API-calls.
 function spaceHTML(launch, rocket) {
+    const dateLocal = launchDate(launch.date_local);
+    const timeLocal = launchTime(launch.date_local, "en-US");
+    const dateUtc = launchDate(launch.date_utc);
+    const timeUtc = launchTime(launch.date_utc, "en-GB");
+    const patch = launch.links.patch.small;
+    let patchImg = `<img src="${patch}" alt="official launch patch of the ${launch.name} launch" class="launch--patch"  referrerpolicy="no - referrer">`;
+    if (!patch) {
+        patchImg = "";
+    }
+
+
     if (!launch.details) {
-        launch.details = "No details about this launch yet. Check back closer to launch for more details!";
+        launch.details = "No details about this launch as of yet. Please check back closer to the launch window for more details!";
     }
 
     launchList.innerHTML +=
         `
         <div class="width-100">
             <div class="launch--container narrow">
-                <h2 class="launch--name">Mission: ${launch.name}</h2>                                   
-                <div class="flex flex__col">
-                    <p>${launch.details}</p>
+                <h2 class="launch--name">Mission: ${launch.name}</h2>                                 
+                <div class="flex flex__center flex__col">
+                    <div>
+                        <p>${launch.details}</p>
+                        ${patchImg}
+                    </div>
                     <div class="launch--info">
                         <p><strong>Rocket: </strong><a href="rocket-details.html?id=${rocket.id}">${rocket.name}</a></p>
                         <p><strong>Launch number: </strong>${launch.flight_number}
                         <div class="timezone--container"> 
                             <div class="launch__local">                                          
-                                <p><strong>Date: </strong>${launchDate(launch.date_local)}</p>
-                                <p><strong>Launch window start: </strong>${launchTime(launch.date_local, "en-US")}</p>
+                                <p><strong>Date: </strong>${dateLocal}</p>
+                                <p><strong>Launch window start: </strong><span class="launch--time">${timeLocal}</span></p>
                             </div>
                             <div class="nodisplay launch__utc">
-                                <p><strong>Date: </strong>${launchDate(launch.date_utc)}</p>
-                                <p><strong>Launch window start: </strong>${launchTime(launch.date_utc, "en-GB")}</p>
+                                <p><strong>Date: </strong>${dateUtc}</p>
+                                <p><strong>Launch window start: </strong><span class="launch--time">${timeUtc}</span></p>
                             </div>
                             <form class="radio--group"> 
                                 <p><strong>Timezone: </strong></p>                                                       
@@ -73,9 +87,8 @@ function spaceHTML(launch, rocket) {
                                 <label class="utctime">UTC<input type="radio" name="timezone"></label>    
                             </form>
                         </div>                   
-                    </div>
-                </div>
-                            
+                    </div>                   
+                </div>                          
             </div>
         </div>
     `

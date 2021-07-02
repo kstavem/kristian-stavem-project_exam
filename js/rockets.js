@@ -11,13 +11,7 @@ async function getRockets() {
 
         for (i = 0; i < rocketResult.length; i++) {
             const rocket = rocketResult[i];
-            let image = ``;
-            if (i == 0) {
-                image = "assets/images/falcon1.jpg";
-            } else {
-                image = rocket.flickr_images[1];
-            };
-
+            let image = rocket.flickr_images[1];
             const name = rocket.name;
             const id = rocket.id;
             const type = rocket.type;
@@ -25,7 +19,7 @@ async function getRockets() {
                 `
             <div class="rocket--display relative">
                 <a href="rocket-details.html?id=${id}">
-                    <img class="rocket--group" src="${image}" alt="SpaceX ${name} ${type}">    
+                    <img class="rocket--group" src="${image}" alt="SpaceX ${name} ${type}" referrerpolicy="no-referrer">    
                     <span class="shadow rocket--blurb">${name}</span>               
                 </a>
             </div>

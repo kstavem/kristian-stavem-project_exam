@@ -7,12 +7,7 @@ const rocketArray = [];
 
 function rocketHTML(rocket) {
     const name = rocket.name;
-    let image = ""; // image array
-    if (rocketID == "5e9d0d95eda69955f709d1eb") {
-        image = ["assets/images/falcon1.jpg", "assets/images/falcon1_2.jpg"];
-    } else {
-        image = rocket.flickr_images;
-    };
+    let image = rocket.flickr_images;
     const desc = rocket.description;
     const flight = rocket.first_flight;
     const success = rocket.success_rate_pct;
@@ -29,7 +24,7 @@ function rocketHTML(rocket) {
             <div class="launch--container narrow">
                 <h2 class="rocket--name">Rocket: ${name}</h2>
                 <div class="flex flex__col between">   
-                <img src="${image[0]}" alt="SpaceX ${name} rocket" class="rocket--image__small">                     
+                    <img src="${image[0]}" alt="SpaceX ${name} rocket" class="rocket--image__small" referrerpolicy="no-referrer">                    
                     <div>
                         <p>${desc}</p>
                         <p>It had its first flight on <strong>${flight}</strong>, and has a ${success}% success rate.</p>
@@ -47,9 +42,9 @@ function rocketHTML(rocket) {
 
     const imageBox = document.querySelector("#rocket--image__array");
     for (var i = 1; i < image.length; i++) {
-        imageBox.innerHTML += `<img src="${image[i]}" class="rocket--image" alt="SpaceX ${name} rocket">`
+        imageBox.innerHTML += `<img src="${image[i]}" class="rocket--image" alt="SpaceX ${name} rocket" referrerpolicy="no-referrer">`
     };
-    imageBox.innerHTML += ` <p class="centered">
+    imageBox.innerHTML += ` <p class="page centered">
                                 <a href="rockets.html">Rockets</a> &gt; <a href="${document.location.href}">${name}</a>
                             </p>`
 };
