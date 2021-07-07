@@ -63,3 +63,41 @@ document.body.addEventListener("doc-ready-ish", function () {
         addEventListener("click", radioLabel)
     });
 });
+
+// Loader text, interval gets cleared when a function changes the enveloping divs (api-responses);
+const loaderArray = [
+    "Calculating trajectory", "Fueling boosters", "Comforting astronauts",
+    "Preparing for launch", "Packing parachute", "Connecting to Matrix",
+    "Performing science", "Mimicking satelite", "T minus 3-2-1",
+    "Go for launch", "Houston we've...", "Detecting lifeforms",
+    "To Minmus and back!", "Scanning intelligence", "One small step",
+    "Making sense", "Keep looking up", "Black hole blues",
+    "Pale blue dot", "Lonely out in space", "Contact light",
+    "Gravity hurts", "Collecting kerbals", "Fuel: 02%",
+    "Avoding black hole", "Building pyramids", "Absorbing radiation",
+    "Measuring tachyons",
+];
+const loaderDots = document.querySelector("#dots");
+const loaderText = document.querySelector("#loadertext");
+
+function randomNumber(myArray) {
+    return Math.floor(Math.random() * myArray.length);
+};
+
+function myDots() {
+    if (loaderDots.innerHTML.length >= 3) {
+        loaderDots.innerHTML = `.`;
+    } else {
+        loaderDots.innerHTML += `.`
+        console.log(loaderDots.innerHTML);
+    };
+};
+
+let dots;
+const arrayNumber = randomNumber(loaderArray);
+if (loaderText) {
+    dots = setInterval(myDots, 1000);
+    loaderText.innerHTML = `${loaderArray[arrayNumber]}`;
+};
+
+

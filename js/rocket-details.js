@@ -3,7 +3,6 @@ const querystring = document.location.search;
 const params = new URLSearchParams(querystring);
 const rocketID = params.get("id");
 const API_URL = "https://api.spacexdata.com/v4/rockets/" + rocketID;
-const rocketArray = [];
 
 function rocketHTML(rocket) {
     const name = rocket.name;
@@ -54,9 +53,10 @@ async function getRocket() {
         const rocketResponse = await fetch(API_URL)
         const rocketResult = await rocketResponse.json();
         rocketContainer.innerHTML = "";
+        rocketContainer.classList.remove("launches");
+        clearInterval(dots);
         console.log(rocketResult);
         rocketHTML(rocketResult);
-
     }
     catch (err) {
         console.log(err);

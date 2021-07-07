@@ -18,7 +18,7 @@
 
 <body>
 
-    <header class="nav--fixed nav--transparent">
+    <header class="nav--fixed nav--solid__dark">
         <nav class="nav">
             <a href="index.html" class="logo">SpaceX<i class="fas fa-rocket"></i></a>
             <label for="nav--burger" class="nav--button"><i class="fas fa-bars"></i></label>
@@ -33,14 +33,13 @@
     </header>
     <main>
 
-        <div class="splash__rocket">
-            <div id="launch--blurb">
-                <h1 id="launch--header">Upcoming launches</h1>
-            </div>
-        </div>
-
         <div class="launches">
-            <div class="loader"></div>
+            <div class="loader--background relative">
+                <p class="loader--text absolute"><span id="loadertext">Calc</span><br><span id="dots">.</span></p>
+                <div class="loader">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
         </div>
 
 

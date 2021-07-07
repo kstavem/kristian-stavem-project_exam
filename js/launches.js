@@ -113,6 +113,7 @@ async function getLaunch() {
         const launchResponse = await fetch(API_URL + "launches/upcoming");
         const launchResult = await launchResponse.json();
         launchList.innerHTML = ``;
+        clearInterval(dots);
 
         for (i = 0; i < launchResult.length; i++) {
 
@@ -127,7 +128,7 @@ async function getLaunch() {
     }
     catch (err) {
         console.log(err);
-    }
+    };
 };
 
 // Event created, and listened for in script.js to delay running code dependant on the dynamic HTML/CSS created by getLaunch();

@@ -1,7 +1,11 @@
 /***** GLOBAL *****/
 
 body {
-    font-family: 'Roboto', sans-serif;   
+    font-family: 'Roboto', sans-serif;  
+}
+
+main {
+    min-height: 120vh; 
 }
 
 h1, h2, h3 {
@@ -44,6 +48,11 @@ li {
 .width-100 {
     width: 100%;
     padding-bottom: 1rem;
+    background-color: #fff;
+}
+
+.width-100:nth-of-type(2n-1) {
+    background-color: rgba(0, 97, 189, 0.2);
 }
 
 .paragraph {
@@ -63,10 +72,6 @@ li {
     margin: 2rem auto;
 }
 
-.width-100:nth-of-type(2n-1) {
-    background-color: rgb(228, 228, 228);
-}
-
 .kerbal {
     width: 100px;
     position: absolute;
@@ -75,7 +80,6 @@ li {
     bottom: 0;
     margin-left: auto; 
     margin-right: auto;
-
 }
 
 .splash {
@@ -84,30 +88,53 @@ li {
     height: 884px;
 }
 
-/***** STOLEN INFLUENCES *****/
+.loader--background {
+    margin: 5rem auto;
+    height: 260px;
+    width: 260px;
+    background: url(../assets/images/earth.png);
+    background-position: center;
+}
 
 .loader {
-    margin: 0 auto;
-    border: 16px solid rgb(241, 139, 165);
-    border-top: 16px solid rgb(5, 9, 66);
     border-radius: 100%;
-    width: 260px;
-    height: 260px;
-    animation: spin 2s linear infinite;
+    width: 230px;
+    height: 240px;
+    animation: spin 2.5s linear infinite;
     transform: translateX(-50%);
-  }
+    margin: 0 auto;
+}
+
+.loader--text {
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+    font-size: 1.5rem;
+    left: 0;
+    right: 0;
+    top: -4rem;
+    margin-left: auto; 
+    margin-right: auto;
+    max-width: 320px;
+}
+
+.loader i {
+    font-size: 2.2rem;
+    color: #000;
+}
+
+#dots {
+    min-width: 100%;
+    display: block;
+}
   
-  @keyframes spin {
+@keyframes spin {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-  }
-
-.padded--room {
-    padding: 3rem;
 }
   
 /***** NAVIGATION *****/
@@ -132,17 +159,17 @@ li {
 }
 
 .nav--solid {
-    background-color: #000;
+    background-color: rgba(2, 32, 61);
     transition: background 750ms;
 }
 
 .nav--transparent {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(2, 32, 61, 0.6);
     transition: background 750ms;
 }
 
-.nav--solid__black {
-    background-color: #000;
+.nav--solid__dark {
+    background-color: #02203d;
 }
 
 .nav__link {
@@ -198,6 +225,14 @@ li {
     padding: 1rem;
 }
 
+/***** FOOTER *****/
+
+footer {
+    min-width: 100%;
+    min-height: 200px;
+    background-color: #02203d;
+}
+
 /***** PAGE: LAUNCHES *****/
 
 
@@ -233,7 +268,8 @@ li {
 .launches {
     display: flex;
     flex-flow: column nowrap;
-    margin: 0 auto;
+    margin: 85px auto;
+    background-color: #fff;
 }
 
 .launch--container {
@@ -271,7 +307,7 @@ li {
     padding: 1rem;
     text-align: center;
     border-radius: 15%;
-    background-color: #c72828;
+    background-color: #02203d;
     color: white;
     box-shadow: 4px 4px 6px black;
     margin-right: 1rem;
@@ -284,9 +320,8 @@ li {
 }
 
 .radio--group .label__highlight {
-    box-shadow: 0 0 6px #c72828;
+    box-shadow: 0 0 6px #02203d;
     text-decoration: underline;
-
 }
 
 .nodisplay {
@@ -344,7 +379,7 @@ li {
 
 .shadow {
     color: #fff;
-    text-shadow: 2px 2px 1px #000;
+    text-shadow: 2px 2px 1px #02203d;
 }
 
 /***** MEDIA QUERIES *****/
@@ -381,7 +416,7 @@ li {
         display: none;
         position: fixed;
         padding: 0;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(2, 32, 61, 0.95);
         top: 85px;
         left: 0;
         right: 0;

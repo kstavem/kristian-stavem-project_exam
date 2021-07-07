@@ -7,7 +7,7 @@ async function getRockets() {
         const rocketResult = await rocketResponse.json();
         console.log(rocketResult);
         rocketContainer.innerHTML = ``;
-
+        clearInterval(dots);
 
         for (i = 0; i < rocketResult.length; i++) {
             const rocket = rocketResult[i];
