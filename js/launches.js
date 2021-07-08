@@ -64,14 +64,16 @@ function spaceHTML(launch, rocket) {
         <div class="width-100">
             <div class="launch--container narrow">
                 <h2 class="launch--name">Mission: ${launch.name}</h2>                                 
-                <div class="flex flex__center flex__col">
+                <div class="flex flex__center flex--col__md">
                     <div>
                         <p class="launch--details">${launch.details}</p>
                         ${patchImg}
                     </div>
                     <div class="launch--info">
+                        <p><strong>Watch live: </strong>
+                            <a href="https://www.youtube.com/c/SpaceX/featured" target="_blank">YouTube</a></p>
                         <p><strong>Rocket: </strong><a href="rocket-details.html?id=${rocket.id}">${rocket.name}</a></p>
-                        <p><strong>Launch number: </strong>${launch.flight_number}
+                        <p><strong>Launch number: </strong>${launch.flight_number}</p>
                         <div class="timezone--container"> 
                             <div class="launch__local">                                          
                                 <p><strong>Date: </strong>${dateLocal}</p>
@@ -81,12 +83,11 @@ function spaceHTML(launch, rocket) {
                                 <p><strong>Date: </strong>${dateUtc}</p>
                                 <p><strong>Launch window start: </strong><span class="launch--time">${timeUtc}</span></p>
                             </div>
-                            <form class="radio--group"> 
-                                <p><strong>Timezone: </strong></p>                                                       
+                            <form class="radio--group">                                                       
                                 <label class="localtime label__highlight">Local<input type="radio" name="timezone" checked></label>
                                 <label class="utctime">UTC<input type="radio" name="timezone"></label>    
                             </form>
-                        </div>                   
+                        </div>                 
                     </div>                   
                 </div>                          
             </div>
@@ -120,8 +121,7 @@ async function getLaunch() {
             const rocketID = launchResult[i].rocket;
             const myRocket = await getRocket(rocketID);
             getRocket(rocketID);
-            console.log(launchResult[i]);
-            console.log(myRocket);
+            console.log(launchResult[i].name, launchResult[i]);
             spaceHTML(launchResult[i], myRocket);
 
         }
