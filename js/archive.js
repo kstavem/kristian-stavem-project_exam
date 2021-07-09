@@ -146,8 +146,8 @@ function showMore() {
 
 document.body.addEventListener("ping-pong", function () {
     const moreButtons = document.querySelectorAll(".loadclick");
-    moreButtons.forEach(function () {
-        addEventListener("click", showMore);
+    moreButtons.forEach(function (button) {
+        button.addEventListener("click", showMore);
     });
     let widthContainer = document.querySelectorAll(".width-100");
     for (i = 11; i < widthContainer.length; i++) {

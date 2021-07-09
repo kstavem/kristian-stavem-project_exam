@@ -51,6 +51,10 @@ li {
     justify-content: center
 }
 
+.align__center {
+    align-items: center;
+}
+
 .between {
     justify-content: space-between;
 }
@@ -92,7 +96,6 @@ li {
 
 .button {
     padding: 1rem;
-    min-width: 140px;
     max-width: 140px;
     text-align: center;
     margin: 1rem auto;
@@ -101,6 +104,7 @@ li {
     font-size: 1.3rem;
     background-color: #2c93f3;
     color: #fff;
+    cursor: pointer;
 }
 
 .button:hover {   
@@ -287,6 +291,11 @@ footer {
     min-width: 100%;
     min-height: 200px;
     background-color: #02203d;
+}
+
+.copy {
+    font-size: 1.3rem;
+    color: white;
 }
 
 /***** PAGE: LAUNCHES *****/
