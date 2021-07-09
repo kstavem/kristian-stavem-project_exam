@@ -118,7 +118,7 @@ async function getLaunch() {
         const launchResult = await launchResponse.json();
         clearInterval(dots);
         launchList.innerHTML = ``;
-        for (let i = 0; i < 52; i++) {
+        for (let i = 0; i < launchResult.length; i++) {
             if (launchResult[i].upcoming) {
                 continue;
             };
