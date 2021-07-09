@@ -1,11 +1,9 @@
-const rocketContainer = document.querySelector(".rocket");
 const launchList = document.querySelector(".launches");
 const API_URL = "https://api.spacexdata.com/v4/";
 
 
 //Functions to unravel ISO 8601 date and time formatting.
 // ld is the dot-notation for local or utc time in the launch-JSON.
-
 function launchDate(ld) {
     const launchDate = new Date(ld);
     const yyyy = launchDate.getFullYear();
@@ -14,11 +12,11 @@ function launchDate(ld) {
 
     if (dd < 10) {
         dd = "0" + dd;
-    }
+    };
 
     if (mm < 10) {
         mm = "0" + mm;
-    }
+    };
 
     const myDate = yyyy + "-" + mm + "-" + dd;
     return myDate;
@@ -30,11 +28,14 @@ function launchDate(ld) {
 function spaceHTML(launch, rocket) {
     const dateLocal = launchDate(launch.date_local);
     const patch = launch.links.patch.small;
-    const success = launch.success;
+    let success = launch.success;
     let successText = `successful`;
-    if (!success) {
+    if (success == false) {
         successText = `unsuccessful`;
-    };
+    } else if (success == null) {
+        success = true;
+        successText = `Launch delayed`;
+    }
     const youtubeId = launch.links.youtube_id;
     const youtube = `https://www.youtube.com/watch?v=` + youtubeId;
     let watchVideo = ", watch the video below";
@@ -74,13 +75,27 @@ function spaceHTML(launch, rocket) {
                         <p class="mb-3">Launch was ${fate}</p>                        
                         <a href="${youtube}" class="block" target="_blank">
                             <img src="assets/images/yt_logo_rgb_light.png" class="youtube">
-                        </a>
-                                                  
+                        </a>                                                  
                     </div>                   
                 </div>                          
             </div>
         </div>
     `
+};
+
+//Adds buttons to load more content or go back to top.
+function loadMore() {
+    launchList.innerHTML += `<div class="width-100">
+                                <div class="launch--container narrow centered">
+                                    <a class="button inlineblock loadmore loadclick">Load more</a>
+                                    <a href="#" class="button inlineblock loadmore">To top</a>
+                                </div>
+                             </div>`;
+};
+
+function myPing() {
+    const myEvent = new Event("ping-pong");
+    document.body.dispatchEvent(myEvent);
 };
 
 // API-call function that takes one argument, the ID of the rocket
@@ -101,15 +116,20 @@ async function getLaunch() {
     try {
         const launchResponse = await fetch(API_URL + "launches");
         const launchResult = await launchResponse.json();
-        launchList.innerHTML = ``;
         clearInterval(dots);
-
-        for (i = 0; i < 11; i++) {
+        launchList.innerHTML = ``;
+        for (let i = 0; i < 52; i++) {
+            if (launchResult[i].upcoming) {
+                continue;
+            };
             const rocketID = launchResult[i].rocket;
             const myRocket = await getRocket(rocketID);
             getRocket(rocketID);
-            console.log(launchResult[i].name, launchResult[i]);
+            console.log(i, launchResult[i].name, launchResult[i]);
             spaceHTML(launchResult[i], myRocket);
+            if (i != 0 && i % 9 == 0) {
+                loadMore();
+            };
         }
     }
     catch (err) {
@@ -117,4 +137,22 @@ async function getLaunch() {
     };
 };
 
-getLaunch();
+function showMore() {
+    let displayContainer = document.querySelectorAll(".nodisplay");
+    for (i = 0; i < 10; i++) {
+        displayContainer[i].classList.remove("nodisplay");
+    };
+};
+
+document.body.addEventListener("ping-pong", function () {
+    const moreButtons = document.querySelectorAll(".loadclick");
+    moreButtons.forEach(function () {
+        addEventListener("click", showMore);
+    });
+    let widthContainer = document.querySelectorAll(".width-100");
+    for (i = 11; i < widthContainer.length; i++) {
+        widthContainer[i].classList.add("nodisplay");
+    };
+});
+
+getLaunch().then(myPing);
