@@ -33,8 +33,8 @@ function spaceHTML(launch, rocket) {
     if (success == false) {
         successText = `unsuccessful`;
     } else if (success == null) {
-        success = true;
-        successText = `Launch delayed`;
+        success = false;
+        successText = `delayed`;
     }
     const youtubeId = launch.links.youtube_id;
     const youtube = `https://www.youtube.com/watch?v=` + youtubeId;
@@ -116,18 +116,19 @@ async function getLaunch() {
     try {
         const launchResponse = await fetch(API_URL + "launches");
         const launchResult = await launchResponse.json();
+        launchResult.reverse();
         clearInterval(dots);
         launchList.innerHTML = ``;
+        let count = 1;
         for (let i = 0; i < launchResult.length; i++) {
-            if (launchResult[i].upcoming) {
-                continue;
-            };
             const rocketID = launchResult[i].rocket;
             const myRocket = await getRocket(rocketID);
-            getRocket(rocketID);
-            console.log(i, launchResult[i].name, launchResult[i]);
-            spaceHTML(launchResult[i], myRocket);
-            if (i != 0 && i % 9 == 0) {
+            if (!launchResult[i].upcoming) {
+                getRocket(rocketID);
+                spaceHTML(launchResult[i], myRocket);
+                count++;
+            };
+            if (count % 10 == 0) {
                 loadMore();
             };
         }
@@ -139,7 +140,7 @@ async function getLaunch() {
 
 function showMore() {
     let displayContainer = document.querySelectorAll(".nodisplay");
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 11; i++) {
         displayContainer[i].classList.remove("nodisplay");
     };
 };
@@ -150,7 +151,7 @@ document.body.addEventListener("ping-pong", function () {
         button.addEventListener("click", showMore);
     });
     let widthContainer = document.querySelectorAll(".width-100");
-    for (i = 11; i < widthContainer.length; i++) {
+    for (i = 10; i < widthContainer.length; i++) {
         widthContainer[i].classList.add("nodisplay");
     };
 });

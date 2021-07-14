@@ -58,7 +58,6 @@ function myDots() {
         loaderDots.innerHTML = `.`;
     } else {
         loaderDots.innerHTML += `.`
-        console.log(loaderDots.innerHTML);
     };
 };
 

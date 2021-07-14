@@ -34,16 +34,37 @@
     </header>
 
     <main>
-        <div class="splash">
-            <img class="kerbal" src="assets/images/105px-Kerbal_helmet_off.png" alt="Jeb the kerbal">
+        <div class="splash relative">
+            <div id="countdown" class="shadow absolute">
+                <p>
+                    <span id="days" class="block"></span>
+                    <span id="hours"></span><span id="minutes"></span><span id="seconds"></span>
+                </p>
+            </div>
+            <div id="blurb" class="absolute flex flex--col__md flex__center">
+                <a href="launches.html">
+                    Next launch<br>
+                    <span id="upcoming"></span><br>
+                    <span id="upcoming__date"></span>
+                </a>
+                <a href="archive.html">
+                    Previous launch<br>
+                    <span id="previous"></span><br>
+                    <span id="previous__date"></span>
+                </a>
+            </div>
         </div>
+
 
     </main>
 
     <footer class="flex flex__center align__center">
+        <img class="kerbal" src="assets/images/105px-Kerbal_helmet_off.png" alt="Jeb the kerbal">
         <p class="copy">&copy; Copyright 2021</p>
+
     </footer>
     <script src="js/script.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

@@ -55,7 +55,6 @@ async function getRocket() {
         rocketContainer.innerHTML = "";
         rocketContainer.classList.remove("launches");
         clearInterval(dots);
-        console.log(rocketResult);
         rocketHTML(rocketResult);
     }
     catch (err) {

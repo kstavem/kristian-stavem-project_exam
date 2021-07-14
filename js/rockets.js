@@ -5,7 +5,6 @@ async function getRockets() {
     try {
         const rocketResponse = await fetch(API_URL)
         const rocketResult = await rocketResponse.json();
-        console.log(rocketResult);
         rocketContainer.innerHTML = ``;
         clearInterval(dots);
 
@@ -20,7 +19,7 @@ async function getRockets() {
             <div class="rocket--display relative">
                 <a href="rocket-details.html?id=${id}">
                     <img class="rocket--group" src="${image}" alt="SpaceX ${name} ${type}" referrerpolicy="no-referrer">    
-                    <span class="shadow rocket--blurb">${name}</span>               
+                    <span class="rocket--blurb">${name}</span>               
                 </a>
             </div>
         `

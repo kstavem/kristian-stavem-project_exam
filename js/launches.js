@@ -117,13 +117,10 @@ async function getLaunch() {
         clearInterval(dots);
 
         for (i = 0; i < launchResult.length; i++) {
-
             const rocketID = launchResult[i].rocket;
             const myRocket = await getRocket(rocketID);
             getRocket(rocketID);
-            console.log(launchResult[i].name, launchResult[i]);
             spaceHTML(launchResult[i], myRocket);
-
         }
     }
     catch (err) {

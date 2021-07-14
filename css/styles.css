@@ -134,18 +134,62 @@ li {
 
 .kerbal {
     width: 100px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-left: auto; 
-    margin-right: auto;
+    margin-right: 2rem;
 }
 
 .splash {
-    position: relative;
     background: url(../assets/images/nightlaunch_lander_lg.jpg) no-repeat center;
     height: 884px;
+}
+
+#blurb {
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 2%;
+    margin-left: auto; 
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+#blurb a {
+    min-width: 280px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(2, 32, 61, 0.6);
+    border: 4px solid white;
+    padding: 1rem;
+    display: block;
+    margin: 1rem;
+}
+
+#blurb a:hover {
+    background-color: #02203d;
+    transition: background-color 0.2s ease-in;
+}
+
+#countdown {
+    text-align: center;
+    min-width: 300px;
+    font-size: 6rem;
+    font-weight: bold;
+    left: 0;
+    right: 0;
+    top: 45%;
+    margin-left: auto; 
+    margin-right: auto;
+  
+}
+
+#countdown p {
+    margin: 0 auto;
+}
+
+#upcoming, #upcoming__date, #previous, #previous__date {
+    font-weight: normal;
+    font-size: 1.4rem;
 }
 
 .loader--background {
@@ -433,6 +477,7 @@ footer {
 .rocket--blurb {
     font-size: 1.3rem;
     font-weight: bold;
+    color: white;
     padding: .3rem;
     background-color: rgba(0, 0, 0, 0.6);
     width: 30%;
@@ -444,7 +489,7 @@ footer {
 
 .shadow {
     color: #fff;
-    text-shadow: 2px 2px 1px #02203d;
+    text-shadow: 4px 4px 1px #02203d;
 }
 
 /***** MEDIA QUERIES *****/
@@ -545,6 +590,10 @@ footer {
     .launch--info {
         margin-left: 2rem;
     }
+
+    #blurb {
+        flex-direction: row-reverse ;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -580,6 +629,16 @@ footer {
     .loadmore {
         margin: 1rem .5rem 0 .5rem;
     }
+
+    #countdown {
+        top: 25%;
+        width: 100%;
+        background-color: rgba(2, 32, 61, 0.6);
+    }
+
+    #countdown p {
+        font-size: 4rem;
+    }
 }
 
 @media screen and (max-width: 374px) {
@@ -601,6 +660,10 @@ footer {
 
     #rocket--image__array {
         margin: 0 auto;
+    }
+
+    #blurb {
+        top: 45%;
     }
 }
    
