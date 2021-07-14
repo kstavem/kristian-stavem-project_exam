@@ -49,7 +49,6 @@ async function blurb() {
         const nextDate = new Date(next.date_local).toLocaleDateString(`en-GB`);
         nextLaunch.innerHTML = next.name;
         nextLaunchDate.innerHTML = nextDate;
-
         const prevResponse = await fetch(API_URL);
         const prevResult = await prevResponse.json();
         const prevResultReverse = prevResult.reverse();

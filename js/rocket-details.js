@@ -22,7 +22,11 @@ function rocketHTML(rocket) {
         `
             <div class="launch--container narrow">
                 <h2 class="rocket--name">Rocket: ${name}</h2>
-                <div class="flex flex--col__md">   
+                <p class="page centered">
+                    <a href="rockets.html">Back to rockets</a> &gt; <a href="${document.location.href}">${name}</a>
+                </p>
+                
+                <div class="flex flex--col__md flex__center">   
                     <img src="${image[0]}" alt="SpaceX ${name} rocket" class="rocket--image__small" referrerpolicy="no-referrer">                    
                     <div class="rocket--info">
                         <p>${desc}</p>
@@ -44,7 +48,7 @@ function rocketHTML(rocket) {
         imageBox.innerHTML += `<img src="${image[i]}" class="rocket--image" alt="SpaceX ${name} rocket" referrerpolicy="no-referrer">`
     };
     imageBox.innerHTML += ` <p class="page centered">
-                                <a href="rockets.html">Rockets</a> &gt; <a href="${document.location.href}">${name}</a>
+                                <a href="rockets.html">Back to rockets</a> &gt; <a href="${document.location.href}">${name}</a>
                             </p>`
 };
 

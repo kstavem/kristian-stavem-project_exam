@@ -2,7 +2,6 @@ const rocketContainer = document.querySelector(".rocket");
 const launchList = document.querySelector(".launches");
 const API_URL = "https://api.spacexdata.com/v4/";
 
-
 //Functions to unravel ISO 8601 date and time formatting.
 // ld is the dot-notation for local or utc time in the launch-JSON.
 
@@ -49,7 +48,7 @@ function spaceHTML(launch, rocket) {
     const dateUtc = launchDate(launch.date_utc);
     const timeUtc = launchTime(launch.date_utc, "en-GB");
     const patch = launch.links.patch.small;
-    let patchImg = `<img src="${patch}" alt="official launch patch of the ${launch.name} launch" class="launch--patch"  referrerpolicy="no - referrer">`;
+    let patchImg = `<img src="${patch}" alt="official launch patch of the ${launch.name} launch" class="launch--patch"  referrerpolicy="no-referrer">`;
     if (!patch) {
         patchImg = "";
     }
@@ -115,6 +114,7 @@ async function getLaunch() {
         const launchResult = await launchResponse.json();
         launchList.innerHTML = ``;
         clearInterval(dots);
+        console.log(launchResult)
 
         for (i = 0; i < launchResult.length; i++) {
             const rocketID = launchResult[i].rocket;

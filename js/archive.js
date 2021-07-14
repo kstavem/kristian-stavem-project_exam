@@ -38,12 +38,12 @@ function spaceHTML(launch, rocket) {
     }
     const youtubeId = launch.links.youtube_id;
     const youtube = `https://www.youtube.com/watch?v=` + youtubeId;
-    let watchVideo = ", watch the video below";
+    let watchVideo = ", watch the video below.";
     if (!youtubeId) {
         watchVideo = ``;
     }
     let article = launch.links.article;
-    let readMore = `. <a href="${article}" target="_blank">Read more here</a>.`
+    let readMore = ` <a href="${article}" target="_blank">Read more here</a>.`
     if (!article) {
         readMore = ``;
     }
