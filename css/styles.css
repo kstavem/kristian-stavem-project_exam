@@ -4,10 +4,6 @@ body {
     font-family: 'Roboto', sans-serif;  
 }
 
-main {
-    min-height: 120vh; 
-}
-
 h1, h2, h3 {
     font-family: 'Sigmar One', cursive;
 }
@@ -178,7 +174,7 @@ li {
     font-weight: bold;
     left: 0;
     right: 0;
-    top: 53%;
+    top: 52%;
     margin-left: auto; 
     margin-right: auto;
     background: rgb(2,32,61);
@@ -195,6 +191,12 @@ li {
 #upcoming, #upcoming__date, #previous, #previous__date {
     font-weight: normal;
     font-size: 1.4rem;
+}
+
+hr {
+    width: 60%;
+    margin: .1rem auto;
+    color: #2c93f3;
 }
 
 .loader--background {
@@ -342,13 +344,17 @@ li {
 
 footer {
     min-width: 100%;
-    min-height: 200px;
-    background-color: #02203d;
+    min-height: 85px;
+}
+
+.socials img {
+    width: 28px;
+    height: 28px;
+    padding: 1.6rem;
 }
 
 .copy {
-    font-size: 1.3rem;
-    color: white;
+    font-size: 1rem;
 }
 
 /***** PAGE: LAUNCHES *****/
@@ -536,7 +542,7 @@ footer {
         display: none;
         position: fixed;
         padding: 0;
-        background-color: rgba(2, 32, 61, 0.95);
+        background-color: rgba(2, 32, 61, 0.96);
         top: 85px;
         left: 0;
         right: 0;

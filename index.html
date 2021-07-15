@@ -37,18 +37,20 @@
         <div class="splash relative">
             <div id="countdown" class="shadow absolute">
                 <p>
-                    <span id="days" class="block">10 days</span>
-                    <span id="hours">00:</span><span id="minutes">13:</span><span id="seconds">37</span>
+                    <span id="days" class="block relative"></span>
+                    <span id="hours">13:</span><span id="minutes"></span><span id="seconds">37</span>
                 </p>
             </div>
             <div id="blurb" class="absolute flex flex--col__md flex__center">
                 <a href="launches.html">
-                    Next launch<br>
+                    Next launch
+                    <hr>
                     <span id="upcoming"></span><br>
                     <span id="upcoming__date"></span>
                 </a>
                 <a href="archive.html">
-                    Previous launch<br>
+                    Previous launch
+                    <hr>
                     <span id="previous"></span><br>
                     <span id="previous__date"></span>
                 </a>
@@ -58,11 +60,15 @@
 
     </main>
 
-    <footer class="flex flex__center align__center">
-        <img class="kerbal" src="assets/images/105px-Kerbal_helmet_off.png" alt="Jeb the kerbal">
+    <footer class="flex flex__col flex__center">
+        <div class="socials">
+            <a href="https://www.instagram.com"><img src="assets/images/icon_Instagram.svg" alt="instagram icon"></a>
+            <a href="https://www.facebook.com"><img src="assets/images/icon_FB.svg" alt="facebook icon"></a>
+            <a href="https://www.twitter.com"><img src="assets/images/icon_Twitter.svg" alt="twitter icon"></a>
+        </div>
         <p class="copy">&copy; Copyright 2021</p>
-
     </footer>
+
     <script src="js/script.js"></script>
     <script src="js/index.js"></script>
 </body>
