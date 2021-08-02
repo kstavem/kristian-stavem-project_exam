@@ -1,11 +1,8 @@
 TO-DO:
-Figure out footer
 Add launch archive to footer (?)
 Add APOD to footer (?)
-Make footer col__md perhaps with more items
-Make contact form, "rockety spacey" design (contact.html)
 Tinker with styles on upcoming/archive
-? Link to KSP ? Fit the KERBAL in somewhere ?
+? Link to KSP ? 
 
 
 

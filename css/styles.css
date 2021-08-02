@@ -138,9 +138,12 @@ li {
 }
 
 .kerbal {
-    width: 100px;
-    margin-right: 2rem;
+    margin: 1rem;
 }
+
+.flip {
+    transform: scaleX(-1);
+  }
 
 .splash {
     background: url(../assets/images/nightlaunch_lander_lg.jpg) no-repeat center;
@@ -415,8 +418,7 @@ footer {
 }
 
 .launch--container p {
-    max-width: 310px;
-   
+    max-width: 310px;   
 }
 
 .launch--info a:hover {
@@ -426,6 +428,10 @@ footer {
 .launch--time {
     display: inline-block   ;
     min-width: 100px;
+}
+
+.radio--group {
+    display: block;
 }
 
 .radio--group input[type="radio"] {

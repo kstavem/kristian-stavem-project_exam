@@ -76,6 +76,7 @@ function validateForm() {
         messageContainer.style.backgroundColor = "rgba(0, 255, 0, .1)";
         messageContainer.innerHTML = `
                                         <p class="spaceblue">Thank you, ${name}, for applying to the SpaceX Astronaut Selection Program</p>
+                                        <hr>
                                         <p class="spaceblue">${ageArray[0]}</p>
                                      `;
     } else {
