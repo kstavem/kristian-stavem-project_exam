@@ -13,7 +13,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Contact</title>
+    <title>Become a SpaceX Astronaut</title>
 </head>
 
 <body>
@@ -32,14 +32,21 @@
         </nav>
     </header>
     <main>
+        <h1 class="mt-85 centered">Astronaut application</h1>
+        <div class="launch--container">
 
-        <div class="launches" style="margin-top: 85px">
-            <div class="loader--background relative">
-                <p class="loader--text absolute"><span id="loadertext">Calc</span><br><span id="dots">.</span></p>
-                <div class="loader">
-                    <i class="fas fa-rocket"></i>
-                </div>
-            </div>
+            <form>
+                <label for="fullname">Full name required</label>
+                <input type="text" name="fullname" placeholder="Full name" id="fullname">
+                <label for="age">Age</label>
+                <input type="text" name="age" placeholder="Age" id="age">
+                <label for="address">Address, <strong>15</strong> letter minimum</label>
+                <input type="text" name="address" placeholder="Address" id="address">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Email" id="email">
+                <button class="button">Apply</button>
+            </form>
+            <div class="form--message nodisplay"></div>
         </div>
     </main>
 
@@ -53,6 +60,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>

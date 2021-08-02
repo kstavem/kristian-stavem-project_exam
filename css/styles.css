@@ -4,6 +4,10 @@ body {
     font-family: 'Roboto', sans-serif;  
 }
 
+main {
+    min-height: calc(100vh - 85px - 133px);
+}
+
 h1, h2, h3 {
     font-family: 'Sigmar One', cursive;
 }
@@ -119,6 +123,10 @@ li {
 
 .false {
     color: red;
+}
+
+.spaceblue {
+    color: #02203d;
 }
 
 .page {
@@ -508,6 +516,36 @@ footer {
     text-shadow: 3px 3px 3px #02203d;
 }
 
+/***** PAGE: CONTACT *****/
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+form input[type="text"], form input[type="email"] {
+    text-align: center;
+    padding: .5rem; 
+    margin-bottom: 1rem;
+}
+
+form label {
+    margin-bottom: .2rem;
+}
+
+.form--message {
+    margin: 1rem auto;
+    max-width: 310px;
+    padding: 2rem;
+}
+
+.form--message p {
+    margin: .5rem auto;
+    text-align: center;
+}
+
 /***** MEDIA QUERIES *****/
 @media screen and (min-width: 1024px) {
     /***** NAVIGATION *****/
@@ -674,6 +712,9 @@ footer {
 
     #blurb {
         bottom: 0;
+    }
+    .form--message p {
+        font-size: .8rem;
     }
 }
    
