@@ -66,7 +66,7 @@ function validateForm() {
     ageArray = [];
     const validName = checkLength(fullName, 3);
     const validAge = checkAge(age, 18, 80);
-    const validAddress = checkLength(address, 14);
+    const validAddress = checkLength(address, 9);
     const validEmail = checkEmail(email);
 
     if ((validName) && (validAge) && (validAddress) && (validEmail)) {
@@ -75,7 +75,7 @@ function validateForm() {
         messageContainer.style.border = "2px solid green";
         messageContainer.style.backgroundColor = "rgba(0, 255, 0, .1)";
         messageContainer.innerHTML = `
-                                        <p class="spaceblue">Thank you, ${name}, for applying to the SpaceX Astronaut Selection Program</p>
+                                        <p class="spaceblue"><strong>Thank you</strong>, ${name}, for applying to the SpaceX Astronaut Selection Program</p>
                                         <hr>
                                         <p class="spaceblue">${ageArray[0]}</p>
                                      `;
