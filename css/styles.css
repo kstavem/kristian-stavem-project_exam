@@ -371,13 +371,6 @@ footer {
 
 /***** PAGE: LAUNCHES *****/
 
-
-.splash__rocket {
-    position: relative;
-    background: url(../assets/images/daylaunch_spacex_lg.jpg) no-repeat center;
-    height: 768px;
-}
-
 #launch--blurb {
     position: absolute;
     left: 0;
@@ -623,12 +616,6 @@ form label {
         background: url(../assets/images/nightlaunch_lander_sm.jpg) no-repeat;
         background-position: 38% 50%;
         height: 768px;
-    }
-
-    .splash__rocket {
-        background: url(../assets/images/daylaunch_spacex_sm.jpg) no-repeat;
-        height: 768px;
-        background-position: 5% 50%;
     }
     
     .rocket--image {

@@ -6,6 +6,7 @@ const API_URL = "https://api.spacexdata.com/v4/rockets/" + rocketID;
 
 function rocketHTML(rocket) {
     const name = rocket.name;
+    document.title = `Rocket: ${name}`;
     let image = rocket.flickr_images;
     const desc = rocket.description;
     const flight = rocket.first_flight;
