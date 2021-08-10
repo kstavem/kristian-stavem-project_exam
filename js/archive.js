@@ -43,7 +43,7 @@ function spaceHTML(launch, rocket) {
         watchVideo = ``;
     }
     let article = launch.links.article;
-    let readMore = ` <a href="${article}" target="_blank">Read more here</a>.`
+    let readMore = ` <a href="${article}" target="_blank">Read more on <em>Spaceflight Now</em></a>.`
     if (!article) {
         readMore = ``;
     }
